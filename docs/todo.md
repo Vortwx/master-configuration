@@ -4,6 +4,28 @@
 ## Backend
 - ExpressJS for API framework and Sequelize for ORM
 
+## Example Data
+User
+- user_id (PK)
+- user_name
+- user_email
+
+Category
+- category_id (PK)
+- category_name
+- category_description
+
+Spending
+- spending_id (PK)
+- category_id (FK)
+- user_id (FK)
+- spending_amount
+- spending_date
+- spending_desc
+
+Spending to category is one to one,
+Spending to user is one to many
+
 
 # Full Stack Project with Angular, Express.js, and Sequelize ORM
 
@@ -29,6 +51,7 @@
 2. **Configure Sequelize**:
    - Set up the Sequelize configuration to connect to a MySQL database.
    - Create models for entities, representing database schema.
+   - Manage database using MySQL Workbench
 
 3. **Create API Endpoints**:
    - Build RESTful API endpoints for CRUD operations (e.g., `GET`, `POST`, `PUT`, `DELETE`).
