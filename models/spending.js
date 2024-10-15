@@ -1,20 +1,24 @@
-const Spending = sequelize.define('Spending', {
+'use strict';
+
+module.exports = (sequelize, DataTypes) => {
+  const Spending = sequelize.define('Spending', {
     spending_id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
     spending_amount: {
-      type: Sequelize.DECIMAL(10, 2),
+      type: DataTypes.DECIMAL(10, 2), // Adjusted to DECIMAL for precise monetary values
       allowNull: false
     },
     spending_date: {
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
       allowNull: false
     },
     spending_desc: {
-      type: Sequelize.STRING
+      type: DataTypes.STRING,
+      allowNull: true // Added allowNull for clarity
     }
   });
-
-  module.exports = Spending
+  return Spending;
+};

@@ -1,17 +1,22 @@
-const Category = sequelize.define('Category', {
+// models/category.js
+'use strict';
+
+module.exports = (sequelize, DataTypes) => {
+  const Category = sequelize.define('Category', {
     category_id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
     category_name: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     category_description: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       allowNull: true
     }
   });
 
-module.exports = Category
+  return Category;
+};

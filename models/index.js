@@ -62,7 +62,6 @@ db.Category.belongsTo(db.Spending, {
 })
 
 
-
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

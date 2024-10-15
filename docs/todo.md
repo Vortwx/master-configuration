@@ -53,6 +53,8 @@ Spending to user is one to many
    - Create models for entities, representing database schema.
    - Manage database using MySQL Workbench
 
+--Completed 15/10
+
 3. **Create API Endpoints**:
    - Build RESTful API endpoints for CRUD operations (e.g., `GET`, `POST`, `PUT`, `DELETE`).
    - Implement controllers to handle the business logic and interaction with Sequelize models.

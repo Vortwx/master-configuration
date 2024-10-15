@@ -1,20 +1,22 @@
-const User = sequelize.define('User', {
-    user_id:{
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
+'use strict';
+
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define('User', {
+    user_id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
     },
     user_name: {
-        type: Sequelize.STRING,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false
     },
-    // email can be left empty
-    // in MySQL each NULL are not equal to each other
     user_email: {
-        type: Sequelize.STRING,
-        allowNull: true,
-        unique: true
+      type: DataTypes.STRING,
+      allowNull: true,
+      unique: true
     }
-})
+  });
+  return User;
+};
 
-module.exports = User
