@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true,
       unique: true
+    },
+    isDefault: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
     }
   });
   return User;

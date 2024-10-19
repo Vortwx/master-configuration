@@ -53,12 +53,13 @@ db.Spending.belongsTo(db.User, {
   as: 'user'
 })
 
-db.Spending.hasOne(db.Category, {
-  foreignKey: 'spending_id', as: 'category'
+//Many-To-One
+db.Spending.belongsTo(db.Category, {
+  foreignKey: 'category_id', as: 'category'
 })
 
-db.Category.belongsTo(db.Spending, {
-  foreignKey: 'spending_id', as: 'spending'
+db.Category.hasMany(db.Spending, {
+  foreignKey: 'category_id', as: 'spendings'
 })
 
 

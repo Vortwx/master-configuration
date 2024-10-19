@@ -58,9 +58,18 @@ Spending to user is one to many
 3. **Create API Endpoints**:
    - Build RESTful API endpoints for CRUD operations (e.g., `GET`, `POST`, `PUT`, `DELETE`).
    - Implement controllers to handle the business logic and interaction with Sequelize models.
+
+--Completed 19/10
    
 4. **Test Backend**:
    - Use Postman or curl to test API endpoints (CRUD).
+
+-- Need to consider the association
+-- The flow should start with create a user (by default will have a default user and several default categories), when create spending user have to select user(if default no need) and a category
+
+-- Created default user, now trying to create several default categories
+-- Then try to populate spending class
+-- See if it can work with curl
 
 ## Step 2: Frontend Setup (Angular)
 

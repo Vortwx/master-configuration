@@ -1,12 +1,38 @@
-const { User } = require('../models')
+const db = require('../models');
+const User = db.User;
+
+
+exports.createDefaultUser = async () => {
+    try {
+        // Check if a default user already exists
+        let defaultUser = await User.findOne({ where: { isDefault: true } });
+        
+        if (!defaultUser) {
+            // If no default user exists, create one
+            defaultUser = await User.create({
+                user_name: 'Default',
+                user_email: null,
+                isDefault: true
+            });
+            console.log('Default user created successfully');
+        } else {
+            console.log('Default user already exists');
+        }
+        return defaultUser;
+    } catch (error) {
+        console.error('Error creating/getting default user:', error);
+        throw error;
+    }
+};
+
 
 exports.create = async (req, res) => {
     try {
-        const { username, email, password } = req.body
-        if (!username || !email || !password) {
-            return res.status(400).json({ message: "Missing username, email, or password" })
+        const { user_name, user_email} = req.body
+        if (!user_name) {
+            return res.status(400).json({ message: "Missing username" })
         }
-        const user = await User.create({ username, email, password })
+        const user = await User.create({user_name,user_email})
         res.status(201).json(user)
     } catch (error) {
         res.status(500).json({ message: "Error creating user", error: error.message })
